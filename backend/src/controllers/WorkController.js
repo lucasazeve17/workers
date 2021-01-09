@@ -2,9 +2,18 @@ const Work = require('../models/work')
 
 module.exports={
     async index(req,res){
-        const works =  await Work.findAll()
+        const { page = 1 } = req.query
+        
+        console.log(page)
 
-        res.json(works)
+        const {count, rows } =  await Work.findAndCountAll({
+            limit:5,
+            offset:(page-1)*5
+            }
+        )
+        res.header('X-Total-Count',count)
+
+        res.json(rows)
     },
     async show(req,res){
         const {id} = req.params

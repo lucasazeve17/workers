@@ -12,14 +12,21 @@ module.exports ={
     async create(req,res){ 
         const {name,email,password,phoneNumber} = req.body
         try {
-            const user = await User.create({
-                name,
-                email,
-                password,
-                phoneNumber
-            })
-        
-            return res.json(user)
+            if(email){
+                const userf = User.findOne({where:{email}})
+                if(!userf) res.json({err:'E-mail já cadastrado na base de dados'})
+                
+                const user = await User.create({
+                    name,
+                    email,
+                    password,
+                    phoneNumber
+                })
+                
+                return res.json(user)
+            }else{
+                res.status(400).json({err:'E-mail inválido'})
+            }
         } catch (error) {
             console.log(error)
             res.status(400).json({error:error})
@@ -50,10 +57,10 @@ module.exports ={
     async auth(req,res){
         const {email,password} = req.body
         
-        if(email != undefined){
+        if(email){
             const user = await User.findOne({where:{email}})
             
-            if(user == undefined){
+            if(!user){
                 res.status(401).json({err:'E-mail não existe na base de dados'})
             }else{
                 if(user.password === password){

@@ -21,22 +21,6 @@ backend:
 ## 🖥️ Preview
 <img src="https://uploaddeimagens.com.br/images/003/022/250/original/WhatsApp_Image_2021-01-05_at_23.32.55.jpeg?1609900404" alt=login-screen width=250/>
 
-## 🕹️ Como executar o projeto
-
-### Clone o repositório
-
-    git clone https://github.com/lucasazeve17workers.git
-
-### Acesse a pasta do projeto no prompt de comando
-
-    cd youtube-clone-twitch-app
-
-### Instale as dependências   
-
-     yarn install ou npm install
-     
-### Execute o script
-
-    yarn start ou npm start
+... Em construção ⚒️
 
 

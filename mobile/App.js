@@ -15,6 +15,7 @@ import Login from './src/pages/Login,'
 import Profile from './src/pages/Profile';
 import Favorites from './src/pages/Favorites';
 import AddWork from './src/pages/AddWork';
+import Register from './src/pages/Register';
 
 
 const Stack = createStackNavigator()
@@ -23,6 +24,10 @@ const Tab = createBottomTabNavigator()
 function  Tabs() {
   return(
     <Tab.Navigator
+    tabBarOptions={{
+      keyboardHidesTabBar: true,
+      // showLabel: false ,
+    }}
     screenOptions={({route})=>({
       tabBarIcon: ({ focused, color, size }) => {
         let iconName;
@@ -73,10 +78,17 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen 
+            name='Register' 
+            component={Register}
+            options={{
+              headerShown:false
+              
+            }}
+            />
+          <Stack.Screen 
             name='Login' 
             component={Login}
             options={{
-              title:'Login',
               headerShown:false
               
             }}

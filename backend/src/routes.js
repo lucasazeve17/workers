@@ -8,6 +8,7 @@ const auth = require('./middleware/auth')
 const routes = express.Router()
 
 routes.get('/user',auth,UserController.index)
+routes.get('/user/:id',UserController.show)
 routes.put('/user/:id',auth,UserController.update)
 routes.post('/auth',UserController.auth)
 routes.post('/user/register',UserController.create)

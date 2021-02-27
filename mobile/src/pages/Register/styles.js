@@ -19,7 +19,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignContent:'space-between',
-    paddingHorizontal:16
+    paddingHorizontal:16,
   },
   content:{
     paddingTop:56
@@ -29,7 +29,7 @@ export default StyleSheet.create({
     padding:16,
     borderRadius:10,
     borderColor:'#D9D0E3',
-    marginBottom:8
+    marginBottom:48
   },
   inputsLabel:{
     marginBottom:16,
@@ -37,37 +37,18 @@ export default StyleSheet.create({
     fontSize:16
   
   },
-  btnSignIn:{
+  btnRegister:{
     backgroundColor:'#0BCE83',
     padding:16,
-    marginTop:'15%',
+    marginTop:'2%',
+    marginBottom:'5%',
     justifyContent:'flex-end',
     borderRadius:10,
   },
-  btnLabelSignIn:{
+  btnLabelRegister:{
       textAlign:'center',
       color:'#fff',
       fontSize:24,
       fontWeight:'bold'
   },
-  btnSignUp:{
-    backgroundColor:'#fff',
-    borderWidth:0,
-    padding:16,
-    marginTop:16,
-    justifyContent:'flex-end',
-    borderRadius:10,
-  },
-  btnSignUpLabel:{
-      textAlign:'center',
-      color:'#2D0C57',
-      fontSize:18,
-      fontWeight:'bold'
-  },
-  messageError:{
-    position:'absolute',
-    color:'red',
-    fontSize:16,
-    marginTop:16
-  }
 });

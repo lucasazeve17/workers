@@ -15,7 +15,6 @@ export default StyleSheet.create({
     color:'#2D0C57',
     fontSize:30,
     fontFamily:'Righteous_400Regular',
-    fontWeight:'bold',
     textAlign:'left',
     marginBottom:27,
   },

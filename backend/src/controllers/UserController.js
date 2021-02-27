@@ -1,20 +1,27 @@
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 const jwtSecret = require('../utils')
+const { show } = require('./WorkController')
 
 
 module.exports ={
     async index(req,res){
         const users = await User.findAll()
         console.log('usuarios: ', users)
-        res.json(users)
+    },
+    async show(req,res){
+        const {id} = req.params
+        console.log('aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
+        console.log('idd ',id);
+        const user = await User.findOne({where:{id}})
+        res.json(user)
     },
     async create(req,res){ 
         const {name,email,password,phoneNumber} = req.body
         try {
             if(email){
-                const userf = User.findOne({where:{email}})
-                if(!userf) res.json({err:'E-mail já cadastrado na base de dados'})
+                const userfind = await User.findOne({where:{email}})
+                if(userfind) res.status(401).json({err:'E-mail já cadastrado na base de dados'})
                 
                 const user = await User.create({
                     name,
@@ -68,7 +75,7 @@ module.exports ={
                         if(err){
                             res.status(400).json({erro:'falha interna'})
                         }else{
-                            res.status(200).json({token})
+                            res.status(200).json({token,userId:user.id})
                         }
                     })
                 }else{

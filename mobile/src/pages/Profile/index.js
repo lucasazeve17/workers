@@ -7,12 +7,8 @@ import styles from './styles'
 import Card from '../../components/Card'
 function Profile({navigation}) {
     const user = async ()=>{
-        const idx = await AsyncStorage.getItem('userId')
-        idx = Number(idx)
-        console.log('ii',idx);
-        idx = Number(idx)
-        const userDados = await api.get('/user/1')
-          console.log('adfsqui',userDados);
+        const userDados = await api.get('/user/30')
+          console.log('adfsqui',userDados.data);
     }
     useEffect(()=>{
         user()

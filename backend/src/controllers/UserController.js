@@ -75,7 +75,7 @@ module.exports ={
                         if(err){
                             res.status(400).json({erro:'falha interna'})
                         }else{
-                            res.status(200).json({token,userId:user.id})
+                            res.status(200).json({token,id:user.id})
                         }
                     })
                 }else{

@@ -2,8 +2,7 @@ import React from 'react'
 
 import {createStackNavigator} from '@react-navigation/stack'
 
-import Tabs from './src/components/TabNavigator'
-
+import Tabs from '../components/TabNavigator'
 
 const AppStack = createStackNavigator()
 

@@ -46,7 +46,16 @@ function Home({navigation}) {
 
 
     useEffect(() => {
-        loadWorks()
+        let isCancelled = false;
+
+        if (!isCancelled)   {
+            loadWorks()
+            
+        }
+        
+        return ()=>{
+            isCancelled = true;
+        }
     },[])
     
     return (

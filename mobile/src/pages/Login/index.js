@@ -1,7 +1,8 @@
-import React,{useState} from 'react';
-import { Text, View, TextInput, TouchableOpacity,AsyncStorage } from 'react-native';
+import React,{useState, useContext} from 'react';
+import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles'
 import api from '../../services'
+import AuthContext from '../../contexts/Auth'
 
 
   
@@ -9,6 +10,8 @@ function Login({navigation}) {
     const [passwordInput, setPasswordInput] = useState('')
     const [emailInput, setEmailInput] = useState('')
     const [errors,setErrors] = useState('')
+    const { signed,sigIn } = useContext(AuthContext)
+    console.log(signed);
 
     const resetFields = ()=>{
         setEmailInput('')
@@ -17,23 +20,9 @@ function Login({navigation}) {
     }
 
     const handleSubmit = async ()=>{
-
-
-        const data = {
-            email: emailInput ,
-            password:passwordInput
-        }
-        
-             api.post('auth',data).then( async (response)=>{
-                await AsyncStorage.setItem('token', response.data.token)
-                await AsyncStorage.setItem('userId',`${response.data.userId}`)
-                resetFields()
-                navigation.navigate("Home")
-             }).catch((err)=>{
-                 console.log('Aquiii o erroroo ',err);
-                 setErrors('Email ou senha incorretos')
-             })
-     
+        await sigIn(emailInput,passwordInput,errors)
+        if(errors) setErrors(errors)
+        resetFields()
 
     }
 

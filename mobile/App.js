@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native'
-import {createStackNavigator} from '@react-navigation/stack'
 import AppLoading from 'expo-app-loading';
+import {AuthProvider} from './src/contexts/Auth'
 import { 
   useFonts,
   Righteous_400Regular 
@@ -22,7 +22,9 @@ export default function App() {
   }else{
     return (
       <NavigationContainer>
-        <Routes/>
+        <AuthProvider>
+          <Routes/>
+        </AuthProvider>
       </NavigationContainer>
     );
   }

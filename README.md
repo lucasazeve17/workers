@@ -19,10 +19,10 @@ backend:
 
 
 ## 🖥️ Preview
-<div>
+<div
  <img src="https://uploaddeimagens.com.br/images/003/201/678/full/Group_3.png?1618774156" alt=login-screen width=250 />
- 
- <img src="https://uploaddeimagens.com.br/images/003/201/679/full/Group_1.png?1618774215" alt=login-screen width=250/> 
+ <img src="https://uploaddeimagens.com.br/images/003/201/746/full/Group_6.png?1618780277" alt=home-screen width=250 />
+ <img src="https://uploaddeimagens.com.br/images/003/201/679/full/Group_1.png?1618774215" alt=profile-screen width=250/> 
 </div>
 
 

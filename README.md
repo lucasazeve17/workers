@@ -19,7 +19,13 @@ backend:
 
 
 ## 🖥️ Preview
-<img src="https://uploaddeimagens.com.br/images/003/022/250/original/WhatsApp_Image_2021-01-05_at_23.32.55.jpeg?1609900404" alt=login-screen width=250/>
+<div>
+ <img src="https://uploaddeimagens.com.br/images/003/201/678/full/Group_3.png?1618774156" alt=login-screen width=200 />
+ <img src="https://uploaddeimagens.com.br/images/003/201/746/full/Group_6.png?1618780277" alt=home-screen width=200 />
+ <img src="https://uploaddeimagens.com.br/images/003/201/750/full/Group_7.png?1618780838" alt=create-work-screen width=200 />
+ <img src="https://uploaddeimagens.com.br/images/003/201/679/full/Group_1.png?1618774215" alt=profile-screen width=200/> 
+</div>
+
 
 ### ... Em construção ⚒️
 

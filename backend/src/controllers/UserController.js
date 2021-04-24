@@ -1,7 +1,7 @@
 const User = require('../models/User')
+const Work = require('../models/Work')
 const jwt = require('jsonwebtoken')
 const jwtSecret = require('../utils')
-const { show } = require('./WorkController')
 
 
 module.exports ={
@@ -11,9 +11,12 @@ module.exports ={
     },
     async show(req,res){
         const {id} = req.params
-        console.log('aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
         console.log('idd ',id);
-        const user = await User.findOne({where:{id}})
+        const user = await User.findOne({
+            where:{ id },
+            include:Work
+        })
+        
         res.json(user)
     },
     async create(req,res){ 

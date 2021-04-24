@@ -15,14 +15,10 @@ const Work = connection.define('work',{
         type:Sequelize.STRING,
         allowNull:true
     },
-    // typePrice:{
-    //     type:Sequelize.DOUBLE,
-    //     allowNull:true
-    // },
-    // price:{
-    //     type:Sequelize.DOUBLE,
-    //     allowNull:true
-    // }
+    price:{
+        type:Sequelize.DOUBLE,
+        allowNull:false
+    }
 })
 
 const syncro = async ()=> await Work.sync({force:false})

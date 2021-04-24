@@ -38,7 +38,7 @@ module.exports={
         if(isNaN(id)){
             res.senStatus(400)
         }else{
-            let id = parseInt(id)
+             id = parseInt(id)
             
             const workDeleted = await Work.destroy({ where:{ id } })
 
@@ -52,15 +52,16 @@ module.exports={
     async update(req,res){
 
         let {id} = req.params
-        const {title,describe} = req.body
+        const {title,describe,image} = req.body
         
-        if(isNaN(id) || title == '' || describe == ''){
+        if(isNaN(id) || title == '' || describe == '' || image == ''){
             res.sendStatus(400)
         }else{
             id = parseInt(id)
             const workUpdated = await Work.update({
                 title,
                 describe,
+                image
             },{
                 where:{ id } 
             })
@@ -74,7 +75,6 @@ module.exports={
     },
     async create(req,res){
         const {title,describe,image} = req.body
-        console.log(req.loggedUser)
         const userId = req.loggedUser.id
         try {
             const work = await Work.create({

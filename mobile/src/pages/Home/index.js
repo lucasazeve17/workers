@@ -71,7 +71,7 @@ function Home({navigation}) {
          
                 <FlatList
                     data={search.length <= 0 ? works : filtro }
-                    renderItem={({item})=>    <Card title={item.title} describe={item.describe} image={item.image} />}
+                    renderItem={({item})=>    <Card title={item.title} describe={item.describe} image={item.image} navigation={navigation} />}
                     keyExtractor={item => item.id.toString()}
                     showsVerticalScrollIndicator={false}
                     onEndReached={loadWorks}

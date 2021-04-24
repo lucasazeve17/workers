@@ -10,7 +10,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 const MyCard = ({
     title,
     describe,
-    image
+    image,
+    navigation
 }) => (
   <View style={styles.card} >
     {/* <Card.Cover style={styles.cover} source={{ uri: cover }} /> */}
@@ -25,7 +26,7 @@ const MyCard = ({
         <TouchableOpacity  style={styles.btnFavorite}>
           <Ionicons name={'heart-outline'} size={18} color="red" />
         </TouchableOpacity> 
-        <TouchableOpacity  style={styles.btnDetails}>
+        <TouchableOpacity  style={styles.btnDetails} onPress={()=> navigation.navigate('Work')}>
           <Ionicons name={'md-information-circle-outline'} size={18} color="white" />
         </TouchableOpacity> 
       </View>

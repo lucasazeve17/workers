@@ -5,24 +5,33 @@ import { StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop:32,
+    // paddingTop:48,
+  },
+  AboutArea:{
+    borderTopRightRadius:20,
+    borderTopLeftRadius:20,
+    backgroundColor: '#F6F5F5',
+
+    padding:16
   },
   cover:{
-    width:'100%',
-    height:300,
+    margin:-20,
+    height:'35%',
   },
-  content:{
+  contentProfile:{
+    // justifyContent:'center',
+    // alignItems:'center',
     backgroundColor: '#F6F5F5',
-    marginTop:-16,
-    borderTopLeftRadius:20,
-    borderTopRightRadius:20,
-    padding:16
+    padding:16,
+    
+    // height:'100%'
   },
   title:{
     color:'#2D0C57',
     fontSize:30,
     fontFamily:'Righteous_400Regular',
     textAlign:'left',
+    marginTop:24,
     marginBottom:16,
   },
   subtitle:{

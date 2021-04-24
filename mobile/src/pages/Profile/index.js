@@ -22,30 +22,40 @@ function Profile({navigation}) {
     },[])
     return (
         <View style={styles.container}>
-            <View style={styles.coverArea}>
-                <Image style={styles.cover} source={{uri:"https://th.bing.com/th/id/Ra777b9637ec86de597e3902d769ffdfc?rik=dkr1V6do%2bnezUg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f7%2fc%2f2%2f1173099-best-developer-wallpaper-hd-1920x1280-htc.jpg&ehk=cpS0yc7f%2f1d6Iv%2bBt0DPh0lhj%2fUcJy3FTDvcU927IPc%3d&risl=&pid=ImgRaw"}}/>
-            </View>
-            <View style={styles.content}>
+            <Image style={styles.cover} source={{uri:"https://th.bing.com/th/id/Ra777b9637ec86de597e3902d769ffdfc?rik=dkr1V6do%2bnezUg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f7%2fc%2f2%2f1173099-best-developer-wallpaper-hd-1920x1280-htc.jpg&ehk=cpS0yc7f%2f1d6Iv%2bBt0DPh0lhj%2fUcJy3FTDvcU927IPc%3d&risl=&pid=ImgRaw"}}/>
+            <ScrollView>
 
-                <Text style={styles.title}>
-                    {userData.name}
+            <View style={styles.AboutArea}>
+                    <Text style={styles.title}>
+                        {userData.name}
+                        </Text> 
+                    <Text style={styles.subtitle}>
+                        Magé, Rio de Janeiro
                     </Text> 
-                <Text style={styles.subtitle}>
-                    Magé, Rio de Janeiro
+                    <Text style={styles.describe}>
+                   
+                        {userData.about}
                     </Text> 
-                <Text style={styles.describe}>
-                    {userData.about}
-                </Text> 
+            </View>
+            <View style={styles.contentProfile}>
                 <Divider/>
                 <Text style={styles.title}>
                 works
                 </Text> 
-                <ScrollView style={styles.content} horizontal={true} >
-                    <Card title="zé das couve" describe=", consectetur adipiscing elit. Aliquam blandit justo quis velit molestie, id sodales dolor finibus. Integer sagittis, diam nec placerat egestas, nisl velit aliquam eros, quis consequat ante" image="https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1502/wavebreakmediamicro150201483/36345407-warehouse-worker-smiling-at-camera-carrying-a-box-in-a-large-warehouse.jpg"  />
-                    <Card title="zé das couve" describe=", consectetur adipiscing elit. Aliquam blandit justo quis velit molestie, id sodales dolor finibus. Integer sagittis, diam nec placerat egestas, nisl velit aliquam eros, quis consequat ante" image="https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1502/wavebreakmediamicro150201483/36345407-warehouse-worker-smiling-at-camera-carrying-a-box-in-a-large-warehouse.jpg" />
-                    <Card title="zé das couve" describe=", consectetur adipiscing elit. Aliquam blandit justo quis velit molestie, id sodales dolor finibus. Integer sagittis, diam nec placerat egestas, nisl velit aliquam eros, quis consequat ante" image="https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1502/wavebreakmediamicro150201483/36345407-warehouse-worker-smiling-at-camera-carrying-a-box-in-a-large-warehouse.jpg" />
+                <ScrollView style={styles.content} horizontal={false} >
+                    {
+                     userData.works?.map(work=>{
+                         console.log('Wooorkk------',work);
+                        return(
+                            <Card title={work.title} describe={work.describe} image={work.image} key={work.id}/>
+                        )
+
+                     })
+                    }
+                   
                 </ScrollView>
             </View>
+            </ScrollView>
         </View>
     );
 }

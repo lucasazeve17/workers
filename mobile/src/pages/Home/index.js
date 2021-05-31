@@ -6,14 +6,14 @@ import styles from './styles'
 import SearchBar  from '../../components/SearchBar'
 import Card  from '../../components/Card'
 
-function Home({navigation}) {
+function Home({navigation,route}) {
     const [works,setWorks] = useState([])
     const [search,setSearch] = useState('')
     const [total,setTotal] = useState(0)
     const [page,setPage] = useState(1)
     const [loading,setLoading] = useState(false)
     const [filtro,setFiltro] = useState([])
-   
+    let refetch = route.params?.refetch
     const loadWorks = async ( )=> {
         console.log('entrou');
        if(loading){
@@ -46,17 +46,10 @@ function Home({navigation}) {
 
 
     useEffect(() => {
-        let isCancelled = false;
-
-        if (!isCancelled)   {
-            loadWorks()
-            
-        }
-        
-        return ()=>{
-            isCancelled = true;
-        }
-    },[])
+        console.log('chamou');
+        loadWorks()
+    
+    },[!!refetch])
     
     return (
         <View style={styles.container}>
@@ -71,7 +64,7 @@ function Home({navigation}) {
          
                 <FlatList
                     data={search.length <= 0 ? works : filtro }
-                    renderItem={({item})=>    <Card title={item.title} describe={item.describe} image={item.image} navigation={navigation} />}
+                    renderItem={({item})=>    <Card item={item} navigation={navigation} />}
                     keyExtractor={item => item.id.toString()}
                     showsVerticalScrollIndicator={false}
                     onEndReached={loadWorks}

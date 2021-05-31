@@ -11,12 +11,13 @@ export default StyleSheet.create({
     borderTopRightRadius:20,
     borderTopLeftRadius:20,
     backgroundColor: '#F6F5F5',
-
+    
     padding:16
   },
   cover:{
     margin:-20,
     height:'35%',
+    zIndex:0
   },
   contentProfile:{
     // justifyContent:'center',
@@ -50,5 +51,10 @@ export default StyleSheet.create({
   },
   searchBar:{
     borderRadius:100,
+  },
+  btnExit:{
+    zIndex:1,
+    position:'absolute',
+    top:250
   }
 });

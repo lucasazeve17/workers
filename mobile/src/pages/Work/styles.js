@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderTopRightRadius:20,
     borderTopLeftRadius:20,
     backgroundColor: '#F6F5F5',
-
+    height:'90%',
     padding:16
   },
   cover:{
@@ -53,7 +53,7 @@ export default StyleSheet.create({
     borderWidth:0.5,
     borderColor:'#9586A8',
     padding:16,
-    marginTop:'15%',
+    marginTop:'5%',
     justifyContent:'flex-end',
     borderRadius:10,
   },
@@ -61,7 +61,7 @@ export default StyleSheet.create({
     backgroundColor:'#0BCE83',
     padding:16,
     width:'70%',
-    marginTop:'15%',
+    marginTop:'5%',
     justifyContent:'flex-end',
     borderRadius:10,
   },
@@ -73,6 +73,10 @@ export default StyleSheet.create({
 },
 buttonArea:{
   justifyContent:'space-between',
+  alignItems:'center',
+  flexDirection:'row',
+},
+authorArea:{
   alignItems:'center',
   flexDirection:'row'
 }

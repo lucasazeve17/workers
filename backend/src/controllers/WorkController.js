@@ -74,18 +74,20 @@ module.exports={
         }
     },
     async create(req,res){
-        const {title,describe,image} = req.body
+        const {title,describe,image,price} = req.body
         const userId = req.loggedUser.id
         try {
             const work = await Work.create({
                 title,
                 describe,
                 image,
-                userId
+                price,
+                userId,
             })
             res.status(200).json(work)
         } catch (error) {
             res.status(400).json({error})
+            console.log(error);
         }
     }
 }

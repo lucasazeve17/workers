@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import { Text, View, Image,ScrollView} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage'
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { Divider } from 'react-native-paper';
 import api from '../../services'
@@ -22,6 +23,11 @@ function Profile({navigation}) {
     },[])
     return (
         <View style={styles.container}>
+            <View>
+                <Text>
+                    s
+                </Text>
+            </View>
             <Image style={styles.cover} source={{uri:"https://th.bing.com/th/id/Ra777b9637ec86de597e3902d769ffdfc?rik=dkr1V6do%2bnezUg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f7%2fc%2f2%2f1173099-best-developer-wallpaper-hd-1920x1280-htc.jpg&ehk=cpS0yc7f%2f1d6Iv%2bBt0DPh0lhj%2fUcJy3FTDvcU927IPc%3d&risl=&pid=ImgRaw"}}/>
             <ScrollView>
 

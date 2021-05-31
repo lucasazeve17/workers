@@ -1,9 +1,31 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Text, View, Button, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import styles from './styles.js'
+import api from '../../services/'
+
 
 function AddWork({navigation}) {
+    const [titleInput, setTitleInput] = useState('')
+    const [describeInput, setDescribeInput] = useState('')
+    const [priceInput, setPriceInput] = useState('')
+    async function handleCreateWork(){
+        const data = {
+            title:titleInput,
+            price:priceInput, 
+            describe:describeInput,
+        }
+
+       api.post('/work/create/',data).then((response)=>{
+           console.log('funcionou ', response.data)
+           navigation.navigate("Home",{refetch:true})
+        }
+       ).catch((err)=>{
+        //    if(err) setErrors('erro')
+           console.log("deu ruim 2 ", err)
+        })
+        
+    }
     return (
         <KeyboardAvoidingView 
             behavior='position'
@@ -14,23 +36,34 @@ function AddWork({navigation}) {
             </View>
             <View style={styles.content}>
                 <Text style={styles.inputsLabel}>Título</Text>
-                <TextInput style={styles.inputs} />
+                <TextInput 
+                    style={styles.inputs} 
+                    placeholder="Ex: Programador back-end" 
+                    value={titleInput}
+                    onChangeText={(e)=> setTitleInput(e)}
+                />
                 <View style={styles.inputsGroup}>
                     <View>
-                        <Text style={styles.inputsLabel}>Tipo do preço</Text>
-                        <TextInput style={styles.inputTypePrice} />
-                    </View>
-                    <View>
                         <Text style={styles.inputsLabel}>Preço</Text>
-                        <TextInput style={styles.inputPrice} />
+                        <TextInput 
+                            style={styles.inputPrice} 
+                            placeholder="R$/hr" 
+                            value={priceInput}
+                            onChangeText={(e)=> setPriceInput(e)}
+                        />
                     </View>
                 </View>
 
                 <Text style={styles.inputsLabel}>Descição</Text>
-                <TextInput style={styles.describe} multiline  />
+                <TextInput
+                    style={styles.describe} multiline  
+                    placeholder="Descrição" 
+                    value={describeInput}
+                    onChangeText={(e)=> setDescribeInput(e)}
+                />
 
                 <TouchableOpacity style={styles.btnSaveWork}>
-                    <Text style={styles.btnLabelSaveWork} >
+                    <Text onPress={handleCreateWork} style={styles.btnLabelSaveWork} >
                         Salvar 
                     </Text>
                 </TouchableOpacity>

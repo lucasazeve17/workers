@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import { Text, View, Image,ScrollView} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { Divider } from 'react-native-paper';

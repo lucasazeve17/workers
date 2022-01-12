@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Text, View, Button,FlatList,} from 'react-native';
+import { Text, View, FlatList,} from 'react-native';
 import api from '../../services'
 
 import styles from './styles'
@@ -10,28 +10,30 @@ function Home({navigation,route}) {
     const [works,setWorks] = useState([])
     const [search,setSearch] = useState('')
     const [total,setTotal] = useState(0)
-    const [page,setPage] = useState(1)
+    const [offset,setOffset] = useState(0)
     const [loading,setLoading] = useState(false)
     const [filtro,setFiltro] = useState([])
     let refetch = route.params?.refetch
-    const loadWorks = async ( )=> {
-        console.log('entrou');
-       if(loading){
+    let workCreated = route.params?.workCreated
+    const loadWorks = async ()=> {
+        if(loading){
            return
-       }
-
-       if(total > 0 && works.length === total){
+        }
+        
+        if(total > 0 && works.length === total && !workCreated){
         return
        }
 
        setLoading(true)
        const response = await api.get('/work',{
-           params:{page}
+           params:{offset}
        })
+
        setWorks([...works,...response.data])
-       setTotal(response.headers["x-total-count"])
-       setPage(page + 1)
+       setTotal(Number(response.headers["x-total-count"]))
+       setOffset(works.length+response.data.length)
        setLoading(false)
+       refetch=undefined
     }
 
     const handleSearch = (e)=>{
@@ -46,11 +48,9 @@ function Home({navigation,route}) {
 
 
     useEffect(() => {
-        console.log('chamou');
         loadWorks()
     
     },[!!refetch])
-    
     return (
         <View style={styles.container}>
             <View style={styles.header}>

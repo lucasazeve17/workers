@@ -18,7 +18,7 @@ function AddWork({navigation}) {
 
        api.post('/work/create/',data).then((response)=>{
            console.log('funcionou ', response.data)
-           navigation.navigate("Home",{refetch:true})
+           navigation.navigate("Home",{refetch:true,workCreated:true})
         }
        ).catch((err)=>{
         //    if(err) setErrors('erro')

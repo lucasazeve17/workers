@@ -2,17 +2,21 @@ const Work = require('../models/work')
 
 module.exports={
     async index(req,res){
-        const { page = 1 } = req.query
+        const { offset  } = req.query
         
-        console.log(page)
-
+        console.log({offset})
+        console.log('offset',Number(offset === 0 ? 5 :  Number(offset) + 5))
+        
         const {count, rows } =  await Work.findAndCountAll({
             limit:5,
-            offset:(page-1)*5
-            }
+            // order: [
+            //     ['createdAt', 'DESC'],
+            // ],
+            offset:Number(offset)
+        }
         )
         res.header('X-Total-Count',count)
-
+        
         res.json(rows)
     },
     async show(req,res){

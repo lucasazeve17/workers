@@ -7,7 +7,7 @@ const jwtSecret = require('../utils')
 module.exports ={
     async index(req,res){
         const users = await User.findAll()
-        console.log('usuarios: ', users)
+        res.json(users)
     },
     async show(req,res){
         const {id} = req.params
